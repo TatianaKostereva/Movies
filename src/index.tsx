@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+
 import MoviesList from './MoviesList';
+import store from './redux';
 
 ReactDOM.render(
   (
-  //<DBProducts>
-    //<Provider store={store}>
+    <Provider store={store}>
       <MoviesList />
-    //</Provider>
-  //</DBProducts>
+    </Provider>
   ),
   document.querySelector('#root'),
 );

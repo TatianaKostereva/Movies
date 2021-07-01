@@ -1,10 +1,9 @@
 import React from "react";
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete'
-import axios from "axios";
+import { Counter } from './Counter';
 
 const MoviesList = () => {
-  //const productsList = useContext(DBProductsContext);
   const top100Films = [
     { title: 'The Shawshank Redemption', year: 1994 },
     { title: 'The Godfather', year: 1972 },
@@ -12,21 +11,10 @@ const MoviesList = () => {
     { title: 'The Dark Knight', year: 2008 },
   ];
 
-  try {
-    const response = await axios({
-      url: 'http://www.omdbapi.com/?apikey=[yourkey]&',
-      headers: new Headers(compiledOptions.headers),
-      ...compiledOptions,
-    });
-
-    return response.data;
-  } catch (error) {
-    throw new Error(error);
-  }
-
   return (
     <div className="movies-list">
       <div className="autocomplete">
+        <Counter />
         <Autocomplete
           id="combo-box-demo"
           options={top100Films}
